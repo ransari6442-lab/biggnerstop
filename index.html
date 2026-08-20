@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,28 +23,31 @@ body{
     font-family:Arial,Helvetica,sans-serif;
     color:#fff;
     background:
-        radial-gradient(circle at 50% 10%,
-        #fff0a0 0%,
-        #e5ad16 20%,
-        #805500 48%,
-        #1a1000 100%);
+        radial-gradient(
+            circle at 50% 10%,
+            #fff3a6 0%,
+            #e8b51f 20%,
+            #8b5d00 48%,
+            #1a1000 100%
+        );
     overflow:hidden;
 }
 
+/* Background glow */
 body::before{
     content:"";
     position:fixed;
     width:500px;
     height:500px;
     border-radius:50%;
-    background:rgba(255,210,50,.18);
+    background:rgba(255,215,50,.20);
     filter:blur(100px);
-    top:-180px;
+    top:-200px;
     left:50%;
     transform:translateX(-50%);
-    pointer-events:none;
 }
 
+/* Main card */
 .card{
     width:100%;
     max-width:430px;
@@ -54,33 +57,42 @@ body::before{
     z-index:2;
 }
 
+/* DP */
 .dp{
     width:125px;
     height:125px;
     border-radius:50%;
     object-fit:cover;
-    border:4px solid #ffd84d;
+
+    border:4px solid #ffe05a;
+
     box-shadow:
-        0 0 18px #ffd84d,
-        0 0 45px rgba(255,193,7,.7);
+        0 0 15px #ffd43b,
+        0 0 45px rgba(255,193,7,.75);
+
     margin-bottom:20px;
 }
 
+/* Title */
 h1{
     font-size:30px;
     font-weight:900;
     color:#fff8d0;
-    text-shadow:0 3px 15px rgba(0,0,0,.6);
     margin-bottom:10px;
+
+    text-shadow:
+        0 2px 12px rgba(0,0,0,.7);
 }
 
+/* Description */
 .desc{
-    color:#ffedaa;
+    color:#ffefad;
     font-size:15px;
     line-height:1.6;
-    margin-bottom:25px;
+    margin-bottom:26px;
 }
 
+/* Telegram Button */
 .join{
     position:relative;
     overflow:hidden;
@@ -94,90 +106,113 @@ h1{
     padding:18px;
 
     border-radius:15px;
-    border:2px solid #ffe98a;
+    border:2px solid #ffed8a;
 
-    background:linear-gradient(
-        135deg,
-        #fff3a5,
-        #ffd43b,
-        #f0a800,
-        #ffe16b
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #fff4a6 0%,
+            #ffd83d 25%,
+            #f2aa00 55%,
+            #ffe875 100%
+        );
 
-    color:#382300;
+    color:#392400;
     text-decoration:none;
+
     font-size:19px;
     font-weight:900;
+    letter-spacing:.5px;
 
     box-shadow:
-        0 5px 0 #815400,
+        0 5px 0 #805300,
         0 12px 35px rgba(255,193,7,.5);
 
-    transition:.25s ease;
+    transition:all .25s ease;
 }
 
+/* Moving shine */
 .join::before{
     content:"";
     position:absolute;
+
     top:0;
     left:-120%;
+
     width:60%;
     height:100%;
 
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.8),
-        transparent
-    );
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.85),
+            transparent
+        );
 
     transform:skewX(-25deg);
+
     animation:shine 2.5s infinite;
 }
 
 @keyframes shine{
+
     0%{
         left:-120%;
     }
+
     45%,100%{
         left:150%;
     }
 }
 
+/* Hover effect */
 .join:hover{
     transform:translateY(-4px);
+
     box-shadow:
-        0 8px 0 #815400,
-        0 18px 45px rgba(255,215,50,.8);
+        0 8px 0 #805300,
+        0 18px 50px rgba(255,215,50,.85);
 }
 
+/* Click effect */
 .join:active{
     transform:translateY(2px);
+
     box-shadow:
-        0 3px 0 #815400,
+        0 3px 0 #805300,
         0 8px 20px rgba(255,193,7,.4);
 }
 
+/* Info box */
 .info{
     margin-top:22px;
     padding:17px;
 
     border-radius:14px;
-    border:1px solid rgba(255,220,90,.5);
 
-    background:rgba(15,9,0,.58);
+    border:1px solid rgba(255,225,100,.5);
+
+    background:rgba(20,12,0,.58);
+
     backdrop-filter:blur(8px);
 
     color:#ffefb0;
+
     font-size:14px;
     line-height:2;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.3);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.3),
+        inset 0 0 20px rgba(255,193,7,.05);
 }
 
+/* Footer */
 .footer{
     margin-top:24px;
-    color:#d7b85b;
+
+    color:#d9bb60;
+
     font-size:12px;
     line-height:1.7;
 }
@@ -186,7 +221,13 @@ h1{
     font-size:22px;
 }
 
+/* Mobile */
 @media(max-width:480px){
+
+    .card{
+        padding:25px 12px;
+    }
+
     .dp{
         width:105px;
         height:105px;
@@ -196,8 +237,8 @@ h1{
         font-size:27px;
     }
 
-    .card{
-        padding:25px 12px;
+    .join{
+        padding:17px;
     }
 }
 </style>
@@ -210,17 +251,18 @@ h1{
     <!-- YOUR DP -->
     <img
         class="dp"
-        src="PASTE_DIRECT_IMGBB_IMAGE_URL_HERE"
+        src="https://i.ibb.co/rRmWpBvV/Whats-App-Image-2026-08-20-at-3-33-19-PM.jpg"
         alt="ZeroRisk by BiggenRs"
     >
 
+    <!-- CHANNEL NAME -->
     <h1>ZeroRisk by BiggenRs</h1>
 
     <p class="desc">
         🎯 Working H@ck • 🎁 Daily Free Gift Codes
     </p>
 
-    <!-- YOUR TELEGRAM LINK -->
+    <!-- TELEGRAM CHANNEL -->
     <a
         class="join"
         href="https://t.me/+uuuCtNjesyljNDBl"
@@ -231,6 +273,7 @@ h1{
         JOIN TELEGRAM
     </a>
 
+    <!-- FEATURES -->
     <div class="info">
         🔒 Safe & Secure<br>
         🎯 Daily Updates<br>
